@@ -1,6 +1,6 @@
 <?php
-require_once 'classes/cadastro.php';
-$u = new cadastro;
+require_once 'classes/pacientes.php';
+$u = new paciente;
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,10 +49,32 @@ $u = new cadastro;
             Ficha dos pacientes
         </h5>
     </div>
+    <div >
+    <table border = '2' class="tabela">
 
+    <tr>
+        <th><b>Nome</b></th>
+    </tr>
+    <?php include("conn.php");
 
+        $sql_tipo = "SELECT * FROM pacientes";
+        $resulta = $conn->query($sql_tipo);
 
+        if ($resulta->num_rows > 0){
 
+            while ( $row = $resulta->fetch_assoc()){            
+
+            echo '<tr>';
+            echo '<td>'. $row['nome'] .'</td>';
+            echo '</tr>';
+            }
+        }
+    ?>
+
+    </table>
+
+    </div>
+    
 
     <footer class="fim">
         <img src="https://play-lh.googleusercontent.com/dwjhi4bErPtRalof28qRURMslGavPhQfMr1V5x-lPedJVbx3cDA0KeUTb2-jUNr5ilI" width="30" height="30" class="lfim">
