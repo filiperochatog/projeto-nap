@@ -1,6 +1,6 @@
 <?php
-require_once 'classes/cadastro.php';
-$u = new cadastro;
+require_once 'classes/pacientes.php';
+$u = new paciente;
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,6 +49,35 @@ $u = new cadastro;
         <h5 class="txtcad">
             Próximas consultas
         </h5>
+    </div>
+    <div >
+    <table class="tabela">
+
+    <tr>
+        <td><b>Nome<b></td>
+        <td><b>Data<b></td>
+        <td><b>Horário<b></td>
+    </tr>
+    <?php include("conn.php");
+
+        $sql_tipo = "SELECT * FROM pacientes";
+        $resulta = $conn->query($sql_tipo);
+
+        if ($resulta->num_rows > 0){
+
+            while ( $row = $resulta->fetch_assoc()){            
+
+            echo '<tr>';
+            echo '<td>'. $row['nome'] .'</td>';
+            echo '<td>'. $row['datas'] .'</td>';
+            echo '<td>'. $row['hora'] .'</td>';
+            echo '</tr>';
+            }
+        }
+    ?>
+
+    </table>
+
     </div>
 
 
