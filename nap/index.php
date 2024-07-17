@@ -5,7 +5,7 @@ $u = new usuario;
 
 <!DOCTYPE html>
 <html>
-
+// inicio
 <head>
     <meta charset="utf-8" />
     <meta name="author" contente="Grupo 04">
